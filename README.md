@@ -37,7 +37,7 @@ Complete the controller and route for returning an issued book. You need to writ
 * Your route will accept Book Copy ID as an argument and mark the appropriate Book Copy as returned and return an appropriate response.
 * You will have to add route in app.js and call the respective controller which you will define in `controller/store.js`.
 
-#### Stage 3 (100 Points)
+#### Stage 3 (60 Points)
 In this stage, you will need to connect your express app with your Mongo DB and create the models.
 
 * You will need to create your MongoDB server using Mongo Atlas and connect it to your express app in app.js. 
@@ -46,7 +46,7 @@ In this stage, you will need to connect your express app with your Mongo DB and 
 * Import these models in `controllers/store.js` and `controllers/auth.js` and use it to access the data from the db.
 
 
-#### Stage 4 (60 Points)
+#### Stage 4 (100 Points)
 In the `controllers/store.js`, fill in the controllers for login, logout and user registration. You will also need to create basic frontend view for these in `views/`. Refer to the existing ejs templates if you have any issue. Also fill in the isLoggedIn function in `middleware/index.js`.
 
 ## Deadline
