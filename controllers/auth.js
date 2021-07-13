@@ -1,22 +1,22 @@
 var getLogin = (req, res) => {
-  //render login page
+  //TODO: render login page
 };
 
 var postLogin = (req, res) => {
-  //authenticate using passport
+  // TODO: authenticate using passport
   //On successful authentication, redirect to next page
 };
 
 var logout = (req, res) => {
-  //write code to logout user and redirect back to the page
+  // TODO: write code to logout user and redirect back to the page
 };
 
 var getRegister = (req, res) => {
-  //render register page
+  // TODO: render register page
 };
 
 var postRegister = (req, res) => {
-  //Register user to User db using passport
+  // TODO: Register user to User db using passport
   //On successful authentication, redirect to next page
 };
 

@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-/* CONNECT MONGOOSE WITH OUR MONGO DB  */
+/* TODO: CONNECT MONGOOSE WITH OUR MONGO DB  */
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Library" });
@@ -52,9 +52,13 @@ app.get("/books", store.getAllBooks);
 
 app.get("/book/:id", store.getBook);
 
-app.get("/books/loaned", store.getLoanedBooks);
+app.get("/books/loaned",
+//TODO: call a function from middleware object to check if logged in (use the middleware object imported)
+ store.getLoanedBooks);
 
-app.post("/books/issue", store.issueBook);
+app.post("/books/issue", 
+//TODO: call a function from middleware object to check if logged in (use the middleware object imported)
+store.issueBook);
 
 app.post("/books/search-book", store.searchBooks);
 
