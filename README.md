@@ -23,21 +23,24 @@ A very basic frontend has already been created for visualizing the results. You 
 
 ## Tasks
 #### Stage 1 (50 Points)
-Complete the following views without altering the frontend. Necessary details have been mentioned as comments in the views themselves. Only a logged in user can view the loaned books or issue a book.
+Complete the following controllers without altering the frontend. Necessary details have been mentioned as comments in the controllers themselves. Only a logged in user can view the loaned books or issue a book.
 
-* Book Detail View
-* Book List View
-* View Loaned Books
-* Issue a Book
+* `getAllBooks`
+* `getBook`
+* `searchBooks`
+* `getLoanedBooks`
+* `issueBook`
 
 #### Stage 2 (30 Points)
-Complete the view for returning an issued book. You need to write this view all by yourself.
+Complete the controller and route for returning an issued book. You need to write this view all by yourself.
+
 * Your view will accept Book Copy ID as an argument and mark the appropriate Book Copy as returned and return an appropriate response.
-* You additionally need to write the JavaScript code to make a POST request to your view and display an appropriate message to the user after the response arrives.
+* You will have to add route in app.js and call the respective controller which you will define in `controller/store.js`.
 
 #### Stage 3 (100 Points)
-In this stage, you will need to implement a rating system all by yourself.
-* You may need to fiddle around with the models, even create some new models, controller and make changes to the existing templates.
+In this stage, you will need to implement a rating system all by yourself. This stage contains highest point in this tasks.
+
+* You may need to fiddle around with the models, even create some new models, controllers and make changes to the existing templates.
 * Your system should allow the user to enter any **integer** between 0 to 10 (both inclusive) and the final rating would be the average of all the user ratings given to the book and should be a **real number**.
 * The ratings would be given to a Book issued by a user, and not a Book Copy.
 * The ratings must be modifiable. Also, if a user has rated a book multiple times, then only the last rating given by the user should matter, any previous ratings should not contribute to the average rating of the book.
@@ -46,7 +49,7 @@ In this stage, you will need to implement a rating system all by yourself.
 * You can add an integer field with a submit button in the Book Detail template or the Book List template itself.
 
 #### Stage 4 (60 Points)
-In the authentication app, fill in the views for login, logout and user registration. You will also need to create basic frontend templates for these views. Refer to the existing templates if you have any issue.
+In the `controllers/store.js`, fill in the controllers for login, logout and user registration. You will also need to create basic frontend view for these in `views/`. Refer to the existing ejs templates if you have any issue.
 
 ## Deadline
 You'll have a week to complete this task. Hence, the deadline of this task is 22nd July, 2021.
