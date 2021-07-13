@@ -23,7 +23,7 @@ A very basic frontend has already been created for visualizing the results. You 
 
 ## Tasks
 #### Stage 1 (50 Points)
-Complete the following controllers without altering the frontend. Necessary details have been mentioned as comments in the controllers themselves. Only a logged in user can view the loaned books or issue a book.
+Complete the following controllers without altering the frontend. Necessary details have been mentioned as comments in the controllers themselves. Add in the middleware function so that only a logged in user can view the loaned books or issue a book.
 
 * `getAllBooks`
 * `getBook`
@@ -38,18 +38,16 @@ Complete the controller and route for returning an issued book. You need to writ
 * You will have to add route in app.js and call the respective controller which you will define in `controller/store.js`.
 
 #### Stage 3 (100 Points)
-In this stage, you will need to implement a rating system all by yourself. This stage contains highest point in this tasks.
+In this stage, you will need to connect your express app with your Mongo DB and create the models.
 
-* You may need to fiddle around with the models, even create some new models, controllers and make changes to the existing templates.
-* Your system should allow the user to enter any **integer** between 0 to 10 (both inclusive) and the final rating would be the average of all the user ratings given to the book and should be a **real number**.
-* The ratings would be given to a Book issued by a user, and not a Book Copy.
-* The ratings must be modifiable. Also, if a user has rated a book multiple times, then only the last rating given by the user should matter, any previous ratings should not contribute to the average rating of the book.
-* As an example, if there are two users U1 and U2, and they have rated a book as 8 and 10, respectively, then the average rating would be 9.0. If the user U1 later changes the rating to 9, then the average rating of the book should become 9.5.
-* Only a logged in user should be allowed to rate a book, but others may view the average rating of the book.
-* You can add an integer field with a submit button in the Book Detail template or the Book List template itself.
+* You will need to create your MongoDB server using Mongo Atlas and connect it to your express app in app.js. 
+* Create the Book, BookCopy and User model according to the fields given.
+* Store references of user who has loaned the copy and of the book in the bookCopy Schema and store array of references of loaned book copies in User Schema.
+* Import these models in `controllers/store.js` and `controllers/auth.js` and use it to access the data from the db.
+
 
 #### Stage 4 (60 Points)
-In the `controllers/store.js`, fill in the controllers for login, logout and user registration. You will also need to create basic frontend view for these in `views/`. Refer to the existing ejs templates if you have any issue.
+In the `controllers/store.js`, fill in the controllers for login, logout and user registration. You will also need to create basic frontend view for these in `views/`. Refer to the existing ejs templates if you have any issue. Also fill in the isLoggedIn function in `middleware/index.js`.
 
 ## Deadline
 You'll have a week to complete this task. Hence, the deadline of this task is 22nd July, 2021.

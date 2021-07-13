@@ -7,7 +7,7 @@ var userSchema=new mongoose.Schema({
 
 
     loaned_books:[
-        //TODO: embed reference to id's of book copies loaned by this particular user
+        //TODO: embed reference to id's of book copies loaned by this particular user in this array
     ]
 })
 userSchema.plugin(passportLocal);
