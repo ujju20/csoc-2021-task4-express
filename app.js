@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 var mongoose = require("mongoose");
 var passport = require("passport");
+var auth = require("./controllers/auth");
+var store = require("./controllers/store");
 var User = require("./models/user");
 var localStrategy = require("passport-local");
 //importing the middleware object to use its functions
@@ -18,6 +20,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+
 app.use(passport.initialize()); //middleware that initialises Passport.
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate())); //used to authenticate User model with passport
@@ -39,63 +42,40 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Library" });
 });
 
-app.get("/books", (req, res) => {
-  //access all books from the book model and render book list page
-  res.render("book_list", { books: [], title: "Books | Library" });
-});
+/*-----------------Store ROUTES
+TODO: Your task is to complete below controllers in controllers/store.js
+If you need to add any new route add it here and define its controller
+controllers folder.
+*/
 
-app.get("/book/:id", (req, res) => {
-  //access the book with this id and render book detail page
-});
+app.get("/books", store.getAllBooks);
 
-app.get(
-  "/books/loaned",
-  //call a function from middleware object to check if logged in (use the middleware object imported)
-  (req, res) => {
-    //access the books loaned for this user and render loaned books page
-  }
-);
+app.get("/book/:id", store.getBook);
 
-app.post(
-  "/books/issue",
-  //call a function from middleware object to check if logged in (use the middleware object imported)
-  (req, res) => {
-    // Extract necessary book details from request
-    // return with appropriate status
-    // Optionally redirect to page or display on same
-  }
-);
+app.get("/books/loaned", store.getLoanedBooks);
 
-app.post("/books/search-book", (req, res) => {
-  // extract search details
-  // query book model on these details
-  // render page with the above details
-});
+app.post("/books/issue", store.issueBook);
 
-/* WRITE VIEW TO RETURN AN ISSUED BOOK YOURSELF */
+app.post("/books/search-book", store.searchBooks);
 
-//AUTH ROUTES
-app.get("/login", (req, res) => {
-  //render login page
-});
+/* TODO: WRITE VIEW TO RETURN AN ISSUED BOOK YOURSELF */
 
-app.post("/login", (req, res) => {
-  //authenticate using passport
-  //On successful authentication, redirect to next page
-});
+/*-----------------AUTH ROUTES
+TODO: Your task is to complete below controllers in controllers/auth.js
+If you need to add any new route add it here and define its controller
+controllers folder.
+*/
 
-app.get("/register", (req, res) => {
-  //render register page
-});
+app.get("/login", auth.getLogin);
 
-app.post("/register", (req, res) => {
-  //Register user to User db using passport
-  //On successful authentication, redirect to next page
-});
+app.post("/login", auth.postLogin);
 
-app.get("/logout", (req, res) => {
-  //write code to logout user and redirect back to the page
-});
+app.get("/register", auth.getRegister);
+
+app.post("/register", auth.postRegister);
+
+app.get("/logout", auth.logout);
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`);
 });

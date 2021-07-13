@@ -44,7 +44,6 @@ In this stage, you will need to implement a rating system all by yourself.
 * As an example, if there are two users U1 and U2, and they have rated a book as 8 and 10, respectively, then the average rating would be 9.0. If the user U1 later changes the rating to 9, then the average rating of the book should become 9.5.
 * Only a logged in user should be allowed to rate a book, but others may view the average rating of the book.
 * You can add an integer field with a submit button in the Book Detail template or the Book List template itself.
-> **_NOTE:_**  This work must be done in the store app itself.
 
 #### Stage 4 (60 Points)
 In the authentication app, fill in the views for login, logout and user registration. You will also need to create basic frontend templates for these views. Refer to the existing templates if you have any issue.
