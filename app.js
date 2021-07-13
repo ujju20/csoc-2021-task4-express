@@ -36,12 +36,12 @@ app.use(function (req, res, next) {
 /* CONNECT MONGOOSE WITH OUR MONGO DB  */
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { title: "Library" });
 });
 
 app.get("/books", (req, res) => {
   //access all books from the book model and render book list page
-  res.render("book_list", { books: [] });
+  res.render("book_list", { books: [], title: "Books | Library" });
 });
 
 app.get("/book/:id", (req, res) => {
