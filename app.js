@@ -25,7 +25,7 @@ passport.serializeUser(User.serializeUser()); //used to serialize the user for t
 passport.deserializeUser(User.deserializeUser()); // used to deserialize the user
 
 app.use(express.urlencoded({ extended: true })); //parses incoming url encoded data from forms to json objects
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //THIS MIDDLEWARE ALLOWS US TO ACCESS THE LOGGED IN USER AS currentUser in all views
 app.use(function (req, res, next) {
@@ -36,11 +36,12 @@ app.use(function (req, res, next) {
 /* CONNECT MONGOOSE WITH OUR MONGO DB  */
 
 app.get("/", (req, res) => {
-  //render index page
+  res.render("index");
 });
 
 app.get("/books", (req, res) => {
   //access all books from the book model and render book list page
+  res.render("book_list", { books: [] });
 });
 
 app.get("/book/:id", (req, res) => {
@@ -55,13 +56,21 @@ app.get(
   }
 );
 
-app.get(
+app.post(
   "/books/issue",
   //call a function from middleware object to check if logged in (use the middleware object imported)
   (req, res) => {
-    //render page to issue a book
+    // Extract necessary book details from request
+    // return with appropriate status
+    // Optionally redirect to page or display on same
   }
 );
+
+app.post("/books/search-book", (req, res) => {
+  // extract search details
+  // query book model on these details
+  // render page with the above details
+});
 
 /* WRITE VIEW TO RETURN AN ISSUED BOOK YOURSELF */
 
